@@ -5,19 +5,8 @@
   var DEFAULT_LAZY_IMAGE = '.react-lazy-image';
   var NxDomEvent = (nx.dom && nx.dom.Event) || require('next-dom-event');
   var nxThrottle = nx.throttle || require('next-throttle');
-  var DEFAULT_OPTIONS = { interval: 800 };
-
-
-  //TODO: has bug:
-  function isInViewport(inElement, inOffset) {
-    var offset = inOffset || 0;
-    var box = inElement.getBoundingClientRect();
-    var viewport = {
-      width: window.innerWidth,
-      height: window.innerHeight,
-    };
-    return !(box.bottom < 0 || box.top > viewport.height) && !(box.right < 0 || box.left > viewport.width);
-  }
+  var nxElementInViewport = nx.elementInViewport || require('next-element-in-viewport');
+  var DEFAULT_OPTIONS = { interval: 800, offset: 0, threshold: 0 };
 
   var NxScrollLazyImage = nx.declare('nx.ScrollLazyImage', {
     methods: {
@@ -51,7 +40,7 @@
         return inElement.dataset.loaded === 'true';
       },
       triggerElement: function (inElement) {
-        if (!this.hasLoad(inElement) && isInViewport(inElement)) {
+        if (!this.hasLoad(inElement) && nxElementInViewport(inElement, this.options)) {
           inElement.dataset.loaded = true;
           inElement.src = inElement.dataset.src;
         }

@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "next-dom-event": "github:afeiship/next-dom-event",
+    "next-element-in-viewport": "github:afeiship/next-element-in-viewport",
     "next-js-core2": "github:afeiship/next-js-core2",
     "next-throttle": "github:afeiship/next-throttle"
   }

@@ -2,7 +2,11 @@
 > Scroll to load lazy image
 
 
-## resources:
-
-## todos:
-- [ ] unit test case
+## default options:
+```js
+{ 
+   interval: 800, 
+   offset: 0, 
+   threshold: 0 
+}
+```
