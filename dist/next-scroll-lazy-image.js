@@ -24,12 +24,12 @@
         this.context = null;
         this.elements = null;
       },
-      _onScroll: nxThrottle(function () {
+      _onScroll: function () {
         var self = this;
         // this.elements.forEach(function (element) {
         //   var img = element.querySeletor('img');
         // })
-      })
+      }
     }
   });
 
