@@ -1,0 +1,34 @@
+{
+  "name": "next-scroll-lazy-image",
+  "version": "0.0.1",
+  "description": "Scroll to load lazy image",
+  "homepage": "https://github.com/afeiship/next-scroll-lazy-image",
+  "author": {
+    "name": "afei",
+    "email": "1290657123@qq.com"
+  },
+  "scripts": {
+    "build": "gulp",
+    "version": "gulp bump"
+  },
+  "main": "dist/next-scroll-lazy-image.js",
+  "license": "MIT",
+  "devDependencies": {
+    "del": "^2.2.1",
+    "gulp": "^3.9.1",
+    "gulp-bump": "^2.7.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-size": "^2.1.0",
+    "gulp-uglify": "^2.1.2",
+    "yargs": "^4.7.1",
+    "mocha": "^3.5.0"
+  },
+  "dependencies": {
+    "next-dom-event": "github:afeiship/next-dom-event",
+    "next-js-core2": "github:afeiship/next-js-core2",
+    "next-throttle": "github:afeiship/next-throttle"
+  }
+}

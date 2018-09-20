@@ -1,0 +1,27 @@
+{
+  "name": "next-scroll-lazy-image",
+  "version": "0.0.1",
+  "description": "Scroll to load lazy image",
+  "main": "dist/next-scroll-lazy-image.js",
+  "authors": [
+    "afei"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "next"
+  ],
+  "homepage": "https://github.com/afeiship/next-scroll-lazy-image",
+  "moduleType": [
+    "amd"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src",
+    "build",
+    "gulpfile.js"
+  ]
+}
