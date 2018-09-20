@@ -11,8 +11,8 @@
   var NxScrollLazyImage = nx.declare('nx.ScrollLazyImage', {
     methods: {
       init: function (inContext, inOptions) {
-        this.options = inOptions || DEFAULT_OPTIONS;
         this.context = inContext || global.document;
+        this.options = inOptions || DEFAULT_OPTIONS;
         this.elements = nx.slice(this.context.querySelectorAll(DEFAULT_LAZY_IMAGE));
         this.attachEvents();
         this.trigger();
