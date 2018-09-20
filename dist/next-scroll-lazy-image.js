@@ -5,6 +5,7 @@
   var DEFAULT_LAZY_IMAGE = '.react-lazy-image';
   var NxDomEvent = (nx.dom && nx.dom.Event) || require('next-dom-event');
   var nxThrottle = nx.throttle || require('next-throttle');
+  var DEFAULT_OPTIONS = { interval: 800 };
 
 
   //TODO: has bug:
@@ -20,10 +21,9 @@
 
   var NxScrollLazyImage = nx.declare('nx.ScrollLazyImage', {
     methods: {
-      init: function (inContext, inOffset, inInterval) {
+      init: function (inContext, inOptions) {
+        this.options = inOptions || DEFAULT_OPTIONS;
         this.context = inContext || global.document;
-        this.interval = inInterval || 600;
-        this.offset = inOffset || 100;
         this.elements = nx.slice(this.context.querySelectorAll(DEFAULT_LAZY_IMAGE));
         this.attachEvents();
         this.trigger();
@@ -32,7 +32,7 @@
         this.detachEvents();
       },
       attachEvents: function () {
-        var handler = nxThrottle(this.trigger, this.interval, this);
+        var handler = nxThrottle(this.trigger, this.options.interval, this);
         this._scrollRes = NxDomEvent.on(global, 'scroll', handler, this);
       },
       detachEvents: function () {
@@ -51,7 +51,7 @@
         return inElement.dataset.loaded === 'true';
       },
       triggerElement: function (inElement) {
-        if (!this.hasLoad(inElement) && isInViewport(inElement, this.offset)) {
+        if (!this.hasLoad(inElement) && isInViewport(inElement)) {
           inElement.dataset.loaded = true;
           inElement.src = inElement.dataset.src;
         }
